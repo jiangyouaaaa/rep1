@@ -1,0 +1,11 @@
+top=mux41b
+
+#try
+#signal pin
+Y (SW0, SW1)
+x0 (SW2, SW3)
+x1 (SW4, SW5)
+x2 (SW6, SW7)
+x3 (SW8, SW9)
+
+F (LD0, LD1)
