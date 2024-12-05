@@ -1,6 +1,8 @@
 module top(
     input [7:0]sw,
     input en,
+    input clk,
+    input rst,
     output reg [2:0] led_out,
     output reg indicate,
     output reg [6:0] seg_out
