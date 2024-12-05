@@ -4,6 +4,8 @@ module mux41b(
         input [1:0] x2,
         input [1:0] x3,
         input [1:0] Y,
+	input clk,
+	input rst,
         output [1:0] F
 );
 MuxKeyWithDefault #(4, 2, 2) i0 (F, Y, 2'b00, {

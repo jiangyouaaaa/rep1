@@ -3,7 +3,6 @@
 
 #include "Vmux41b.h"
 #include "Vmux41b__Syms.h"
-#include "verilated_vcd_c.h"
 
 //============================================================
 // Constructors
@@ -16,6 +15,8 @@ Vmux41b::Vmux41b(VerilatedContext* _vcontextp__, const char* _vcname__)
     , x2{vlSymsp->TOP.x2}
     , x3{vlSymsp->TOP.x3}
     , Y{vlSymsp->TOP.Y}
+    , clk{vlSymsp->TOP.clk}
+    , rst{vlSymsp->TOP.rst}
     , F{vlSymsp->TOP.F}
     , rootp{&(vlSymsp->TOP)}
 {
@@ -52,7 +53,6 @@ void Vmux41b::eval_step() {
     // Debug assertions
     Vmux41b___024root___eval_debug_assertions(&(vlSymsp->TOP));
 #endif  // VL_DEBUG
-    vlSymsp->__Vm_activity = true;
     vlSymsp->__Vm_deleter.deleteAll();
     if (VL_UNLIKELY(!vlSymsp->__Vm_didInit)) {
         vlSymsp->__Vm_didInit = true;
@@ -102,39 +102,3 @@ VL_ATTR_COLD void Vmux41b::final() {
 const char* Vmux41b::hierName() const { return vlSymsp->name(); }
 const char* Vmux41b::modelName() const { return "Vmux41b"; }
 unsigned Vmux41b::threads() const { return 1; }
-std::unique_ptr<VerilatedTraceConfig> Vmux41b::traceConfig() const {
-    return std::unique_ptr<VerilatedTraceConfig>{new VerilatedTraceConfig{false, false, false}};
-};
-
-//============================================================
-// Trace configuration
-
-void Vmux41b___024root__trace_init_top(Vmux41b___024root* vlSelf, VerilatedVcd* tracep);
-
-VL_ATTR_COLD static void trace_init(void* voidSelf, VerilatedVcd* tracep, uint32_t code) {
-    // Callback from tracep->open()
-    Vmux41b___024root* const __restrict vlSelf VL_ATTR_UNUSED = static_cast<Vmux41b___024root*>(voidSelf);
-    Vmux41b__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    if (!vlSymsp->_vm_contextp__->calcUnusedSigs()) {
-        VL_FATAL_MT(__FILE__, __LINE__, __FILE__,
-            "Turning on wave traces requires Verilated::traceEverOn(true) call before time 0.");
-    }
-    vlSymsp->__Vm_baseCode = code;
-    tracep->scopeEscape(' ');
-    tracep->pushNamePrefix(std::string{vlSymsp->name()} + ' ');
-    Vmux41b___024root__trace_init_top(vlSelf, tracep);
-    tracep->popNamePrefix();
-    tracep->scopeEscape('.');
-}
-
-VL_ATTR_COLD void Vmux41b___024root__trace_register(Vmux41b___024root* vlSelf, VerilatedVcd* tracep);
-
-VL_ATTR_COLD void Vmux41b::trace(VerilatedVcdC* tfp, int levels, int options) {
-    if (tfp->isOpen()) {
-        vl_fatal(__FILE__, __LINE__, __FILE__,"'Vmux41b::trace()' shall not be called after 'VerilatedVcdC::open()'.");
-    }
-    if (false && levels && options) {}  // Prevent unused
-    tfp->spTrace()->addModel(this);
-    tfp->spTrace()->addInitCb(&trace_init, &(vlSymsp->TOP));
-    Vmux41b___024root__trace_register(&(vlSymsp->TOP), tfp->spTrace());
-}

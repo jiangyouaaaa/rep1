@@ -10,15 +10,12 @@ VL_INLINE_OPT void Vmux41b___024root___ico_sequent__TOP__0(Vmux41b___024root* vl
     if (false && vlSelf) {}  // Prevent unused
     Vmux41b__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vmux41b___024root___ico_sequent__TOP__0\n"); );
+    // Init
+    CData/*1:0*/ mux41b__DOT__i0__DOT__i0__DOT__lut_out;
+    mux41b__DOT__i0__DOT__i0__DOT__lut_out = 0;
+    CData/*0:0*/ mux41b__DOT__i0__DOT__i0__DOT__hit;
+    mux41b__DOT__i0__DOT__i0__DOT__hit = 0;
     // Body
-    vlSelf->mux41b__DOT__i0__DOT__i0__DOT__pair_list[0U] 
-        = (0xcU | (IData)(vlSelf->x3));
-    vlSelf->mux41b__DOT__i0__DOT__i0__DOT__pair_list[1U] 
-        = (8U | (IData)(vlSelf->x2));
-    vlSelf->mux41b__DOT__i0__DOT__i0__DOT__pair_list[2U] 
-        = (4U | (IData)(vlSelf->x1));
-    vlSelf->mux41b__DOT__i0__DOT__i0__DOT__pair_list[3U] 
-        = vlSelf->x0;
     vlSelf->mux41b__DOT__i0__DOT__i0__DOT__data_list[0U] 
         = vlSelf->x3;
     vlSelf->mux41b__DOT__i0__DOT__i0__DOT__data_list[1U] 
@@ -27,46 +24,54 @@ VL_INLINE_OPT void Vmux41b___024root___ico_sequent__TOP__0(Vmux41b___024root* vl
         = vlSelf->x1;
     vlSelf->mux41b__DOT__i0__DOT__i0__DOT__data_list[3U] 
         = vlSelf->x0;
-    vlSelf->mux41b__DOT__i0__DOT__i0__DOT__lut_out 
-        = ((- (IData)(((IData)(vlSelf->Y) == vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
-                       [0U]))) & vlSelf->mux41b__DOT__i0__DOT__i0__DOT__data_list
-           [0U]);
-    vlSelf->mux41b__DOT__i0__DOT__i0__DOT__hit = ((IData)(vlSelf->Y) 
-                                                  == 
-                                                  vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
-                                                  [0U]);
-    vlSelf->mux41b__DOT__i0__DOT__i0__DOT__lut_out 
-        = ((IData)(vlSelf->mux41b__DOT__i0__DOT__i0__DOT__lut_out) 
-           | ((- (IData)(((IData)(vlSelf->Y) == vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
-                          [1U]))) & vlSelf->mux41b__DOT__i0__DOT__i0__DOT__data_list
-              [1U]));
-    vlSelf->mux41b__DOT__i0__DOT__i0__DOT__hit = ((IData)(vlSelf->mux41b__DOT__i0__DOT__i0__DOT__hit) 
-                                                  | ((IData)(vlSelf->Y) 
-                                                     == 
-                                                     vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
-                                                     [1U]));
-    vlSelf->mux41b__DOT__i0__DOT__i0__DOT__lut_out 
-        = ((IData)(vlSelf->mux41b__DOT__i0__DOT__i0__DOT__lut_out) 
-           | ((- (IData)(((IData)(vlSelf->Y) == vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
-                          [2U]))) & vlSelf->mux41b__DOT__i0__DOT__i0__DOT__data_list
-              [2U]));
-    vlSelf->mux41b__DOT__i0__DOT__i0__DOT__hit = ((IData)(vlSelf->mux41b__DOT__i0__DOT__i0__DOT__hit) 
-                                                  | ((IData)(vlSelf->Y) 
-                                                     == 
-                                                     vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
-                                                     [2U]));
-    vlSelf->mux41b__DOT__i0__DOT__i0__DOT__lut_out 
-        = ((IData)(vlSelf->mux41b__DOT__i0__DOT__i0__DOT__lut_out) 
-           | ((- (IData)(((IData)(vlSelf->Y) == vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
-                          [3U]))) & vlSelf->mux41b__DOT__i0__DOT__i0__DOT__data_list
-              [3U]));
-    vlSelf->mux41b__DOT__i0__DOT__i0__DOT__hit = ((IData)(vlSelf->mux41b__DOT__i0__DOT__i0__DOT__hit) 
-                                                  | ((IData)(vlSelf->Y) 
-                                                     == 
-                                                     vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
-                                                     [3U]));
-    vlSelf->F = ((IData)(vlSelf->mux41b__DOT__i0__DOT__i0__DOT__hit)
-                  ? (IData)(vlSelf->mux41b__DOT__i0__DOT__i0__DOT__lut_out)
+    mux41b__DOT__i0__DOT__i0__DOT__lut_out = ((- (IData)(
+                                                         ((IData)(vlSelf->Y) 
+                                                          == 
+                                                          vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
+                                                          [0U]))) 
+                                              & vlSelf->mux41b__DOT__i0__DOT__i0__DOT__data_list
+                                              [0U]);
+    mux41b__DOT__i0__DOT__i0__DOT__hit = ((IData)(vlSelf->Y) 
+                                          == vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
+                                          [0U]);
+    mux41b__DOT__i0__DOT__i0__DOT__lut_out = ((IData)(mux41b__DOT__i0__DOT__i0__DOT__lut_out) 
+                                              | ((- (IData)(
+                                                            ((IData)(vlSelf->Y) 
+                                                             == 
+                                                             vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
+                                                             [1U]))) 
+                                                 & vlSelf->mux41b__DOT__i0__DOT__i0__DOT__data_list
+                                                 [1U]));
+    mux41b__DOT__i0__DOT__i0__DOT__hit = ((IData)(mux41b__DOT__i0__DOT__i0__DOT__hit) 
+                                          | ((IData)(vlSelf->Y) 
+                                             == vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
+                                             [1U]));
+    mux41b__DOT__i0__DOT__i0__DOT__lut_out = ((IData)(mux41b__DOT__i0__DOT__i0__DOT__lut_out) 
+                                              | ((- (IData)(
+                                                            ((IData)(vlSelf->Y) 
+                                                             == 
+                                                             vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
+                                                             [2U]))) 
+                                                 & vlSelf->mux41b__DOT__i0__DOT__i0__DOT__data_list
+                                                 [2U]));
+    mux41b__DOT__i0__DOT__i0__DOT__hit = ((IData)(mux41b__DOT__i0__DOT__i0__DOT__hit) 
+                                          | ((IData)(vlSelf->Y) 
+                                             == vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
+                                             [2U]));
+    mux41b__DOT__i0__DOT__i0__DOT__lut_out = ((IData)(mux41b__DOT__i0__DOT__i0__DOT__lut_out) 
+                                              | ((- (IData)(
+                                                            ((IData)(vlSelf->Y) 
+                                                             == 
+                                                             vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
+                                                             [3U]))) 
+                                                 & vlSelf->mux41b__DOT__i0__DOT__i0__DOT__data_list
+                                                 [3U]));
+    mux41b__DOT__i0__DOT__i0__DOT__hit = ((IData)(mux41b__DOT__i0__DOT__i0__DOT__hit) 
+                                          | ((IData)(vlSelf->Y) 
+                                             == vlSelf->mux41b__DOT__i0__DOT__i0__DOT__key_list
+                                             [3U]));
+    vlSelf->F = ((IData)(mux41b__DOT__i0__DOT__i0__DOT__hit)
+                  ? (IData)(mux41b__DOT__i0__DOT__i0__DOT__lut_out)
                   : 0U);
 }
 
@@ -77,7 +82,6 @@ void Vmux41b___024root___eval_ico(Vmux41b___024root* vlSelf) {
     // Body
     if (vlSelf->__VicoTriggered.at(0U)) {
         Vmux41b___024root___ico_sequent__TOP__0(vlSelf);
-        vlSelf->__Vm_traceActivity[1U] = 1U;
     }
 }
 
@@ -126,7 +130,7 @@ void Vmux41b___024root___eval(Vmux41b___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vmux41b___024root___dump_triggers__ico(vlSelf);
 #endif
-                VL_FATAL_MT("mux41b.v", 1, "", "Input combinational region did not converge.");
+                VL_FATAL_MT("/home/dante/ysyx-workbench/digital_circuit/ex1/vsrc/mux41b.v", 1, "", "Input combinational region did not converge.");
             }
             vlSelf->__VicoIterCount = ((IData)(1U) 
                                        + vlSelf->__VicoIterCount);
@@ -149,7 +153,7 @@ void Vmux41b___024root___eval(Vmux41b___024root* vlSelf) {
 #ifdef VL_DEBUG
                     Vmux41b___024root___dump_triggers__act(vlSelf);
 #endif
-                    VL_FATAL_MT("mux41b.v", 1, "", "Active region did not converge.");
+                    VL_FATAL_MT("/home/dante/ysyx-workbench/digital_circuit/ex1/vsrc/mux41b.v", 1, "", "Active region did not converge.");
                 }
                 vlSelf->__VactIterCount = ((IData)(1U) 
                                            + vlSelf->__VactIterCount);
@@ -164,7 +168,7 @@ void Vmux41b___024root___eval(Vmux41b___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vmux41b___024root___dump_triggers__nba(vlSelf);
 #endif
-                VL_FATAL_MT("mux41b.v", 1, "", "NBA region did not converge.");
+                VL_FATAL_MT("/home/dante/ysyx-workbench/digital_circuit/ex1/vsrc/mux41b.v", 1, "", "NBA region did not converge.");
             }
             __VnbaIterCount = ((IData)(1U) + __VnbaIterCount);
             Vmux41b___024root___eval_nba(vlSelf);
@@ -188,5 +192,9 @@ void Vmux41b___024root___eval_debug_assertions(Vmux41b___024root* vlSelf) {
         Verilated::overWidthError("x3");}
     if (VL_UNLIKELY((vlSelf->Y & 0xfcU))) {
         Verilated::overWidthError("Y");}
+    if (VL_UNLIKELY((vlSelf->clk & 0xfeU))) {
+        Verilated::overWidthError("clk");}
+    if (VL_UNLIKELY((vlSelf->rst & 0xfeU))) {
+        Verilated::overWidthError("rst");}
 }
 #endif  // VL_DEBUG

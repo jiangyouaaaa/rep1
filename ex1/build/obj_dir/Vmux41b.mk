@@ -2,9 +2,9 @@
 # DESCRIPTION: Verilator output: Makefile for building Verilated archive or executable
 #
 # Execute this makefile from the object directory:
-#    make -f Vex1.mk
+#    make -f Vmux41b.mk
 
-default: Vex1
+default: /home/dante/ysyx-workbench/digital_circuit/ex1/build/mux41b
 
 ### Constants...
 # Perl executable (from $PERL)
@@ -30,38 +30,52 @@ VM_SC_TARGET_ARCH = linux
 
 ### Vars...
 # Design prefix (from --prefix)
-VM_PREFIX = Vex1
+VM_PREFIX = Vmux41b
 # Module prefix (from --prefix)
-VM_MODPREFIX = Vex1
+VM_MODPREFIX = Vmux41b
 # User CFLAGS (from -CFLAGS on Verilator command line)
 VM_USER_CFLAGS = \
+	-MMD \
+	-O3 \
+	-I/usr/include/SDL2 \
+	-D_REENTRANT \
+	-I/home/dante/ysyx-workbench/nvboard/usr/include \
+	-DTOP_NAME="Vmux41b" \
 
 # User LDLIBS (from -LDFLAGS on Verilator command line)
 VM_USER_LDLIBS = \
+	/home/dante/ysyx-workbench/nvboard/build/nvboard.a \
+	-lSDL2 \
+	-lSDL2_image \
+	-lSDL2_ttf \
 
 # User .cpp files (from .cpp's on Verilator command line)
 VM_USER_CLASSES = \
-	tb_top \
+	auto_bind \
+	main \
 
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
-	. \
+	/home/dante/ysyx-workbench/digital_circuit/ex1/build \
+	/home/dante/ysyx-workbench/digital_circuit/ex1/csrc \
 
 
 ### Default rules...
 # Include list of all generated classes
-include Vex1_classes.mk
+include Vmux41b_classes.mk
 # Include global rules
 include $(VERILATOR_ROOT)/include/verilated.mk
 
 ### Executable rules... (from --exe)
 VPATH += $(VM_USER_DIR)
 
-tb_top.o: tb_top.cpp
+auto_bind.o: /home/dante/ysyx-workbench/digital_circuit/ex1/build/auto_bind.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main.o: /home/dante/ysyx-workbench/digital_circuit/ex1/csrc/main.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 
 ### Link rules... (from --exe)
-Vex1: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a $(VM_HIER_LIBS)
+/home/dante/ysyx-workbench/digital_circuit/ex1/build/mux41b: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a $(VM_HIER_LIBS)
 	$(LINK) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) $(LIBS) $(SC_LIBS) -o $@
 
 
