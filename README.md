@@ -2,3 +2,5 @@
 
 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
 有效期90天
+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
+新token，有效期90天，12.17
